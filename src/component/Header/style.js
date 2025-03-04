@@ -546,7 +546,7 @@ const styles = {
       color: "#FFF",
       lineHeight: "21px",
       paddingRight: "20px",
-      paddingLeft: "6px",
+      paddingLeft: "20px",
     },
     "& img": {
       height: "20px",

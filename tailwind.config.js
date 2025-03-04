@@ -16,6 +16,7 @@ module.exports = {
       fontFamily: {
         nohemi: ["Nohemi", "sans-serif"],
         spacegrotesk: ["Space Grotesk", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
       },
     },
   },

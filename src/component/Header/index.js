@@ -212,7 +212,7 @@ const RevampHeader = ({ app }) => {
                     src={"/images/ai/aiNationLogo.svg"}
                     alt="AI Nation Logo"
                     width={200}
-                    style={{ height: "60px", width: "290px" }}
+                    style={{ height: "60px", width: "170px" }}
                     loading="eager"
                     decoding="async"
                   />
@@ -305,7 +305,6 @@ const RevampHeader = ({ app }) => {
             )}
 
             <Box sx={styles.btnContainer} onClick={handleWalletClick}>
-              <img src="/images/rocket-launch.svg" />
               {isWalletConnected ? (
                 <Button
                   sx={{

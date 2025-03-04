@@ -77,7 +77,7 @@ const FilterTabs = ({ activeTab, setActiveTab, isMobile }) => {
         <button
           key={tab.id}
           onClick={() => handleTabClick(tab.id)}
-          className={`px-5 py-3 rounded-full text-sm text-[#302249] font-medium transition-all flex-shrink-0
+          className={`px-5 py-2 rounded-full text-base text-[#302249] font-bold transition-all flex-shrink-0
             ${
               activeTab === tab.id
                 ? "bg-[#302249] text-[#FFFFFF] shadow-inner"

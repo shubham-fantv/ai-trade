@@ -5,6 +5,7 @@
 body {
   @apply font-nohemi;
   @apply font-spacegrotesk;
+  @apply font-inter;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap");
@@ -45,6 +46,11 @@ body {
 @font-face {
   font-family: "Space Grotesk";
   src: url("../public/fonts/SpaceGrotesk-VariableFont_wght.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../public/fonts/Inter-VariableFont_opsz,wght.ttf");
   font-display: swap;
 }
 

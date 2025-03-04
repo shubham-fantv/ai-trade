@@ -265,95 +265,89 @@ const TradeComponent = ({ agentDetail, graphData }) => {
   };
 
   return (
-    <div className="w-full space-y-6">
-      <div className="bg-[#FFFFFF80] w-full   border-[2px] border-[#FFFFFF]/15 rounded-xl p-6">
-        <div layout className="flex rounded-full bg-[#333333] p-2 mb-6">
+    <div className="w-full space-y-2">
+      <div className=" relative bg-[#FFFFFF80] w-full   border-[2px] border-[#FFFFFF]/15 rounded-xl p-6">
+        <div className="relative flex border-b border-gray-300 w-full">
           <button
-            layout
-            className={`flex-1 py-2 rounded-full text-sm font-medium transition-all ${
-              isBuyMode ? "bg-white text-black" : "text-gray-400 hover:text-white"
+            className={`px-4 pb-2 text-lg font-bold transition-all relative ${
+              isBuyMode ? "text-[#302249]" : "text-[#706383]"
             }`}
             onClick={() => setIsBuyMode(true)}
           >
             Buy
+            {isBuyMode && (
+              <span className="absolute left-0 bottom-[-1px] w-full h-[2px] bg-black"></span>
+            )}
           </button>
           <button
-            layout
-            className={`flex-1 py-2 rounded-full text-sm font-medium transition-all ${
-              !isBuyMode ? "bg-white text-black" : "text-gray-400 hover:text-white"
+            className={`px-4 pb-2 text-lg font-medium transition-all relative ${
+              !isBuyMode ? "text-[#302249]" : "text-[#706383]"
             }`}
             onClick={() => setIsBuyMode(false)}
           >
             Sell
+            {!isBuyMode && (
+              <span className="absolute left-0 bottom-[-1px] w-full h-[2px] bg-black"></span>
+            )}
           </button>
         </div>
-
-        {/* Amount Section */}
-        <div className="mb-6 text-[#302249]">
-          <div className="flex justify-between mb-3 text-sm">
-            <div className="flex items-center gap-1">
-              <span>Amount</span>
-              {/* <span className="font-normal text-gray-400">Slippage:</span>
-              <span style={{ color: agentDetail?.change24?.color }}>
-                {agentDetail?.change24?.text}
-              </span> */}
+        <div className="relative">
+          <div className="my-6 text-[#302249] bg-[#FFF] p-4 rounded-2xl">
+            <div className="flex justify-between mb-3 text-sm ">
+              <div className="flex items-center gap-1">
+                <span className="text-[#706383] text-[20px] font-normal">From</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              {["0", "50", "100"].map((percent) => (
-                <button
-                  key={percent}
-                  className="px-2 py-1 rounded bg-[#e0e0e4] text-xs"
-                  onClick={() => setPercentageAmount(parseInt(percent) / 100)}
-                >
-                  {percent}%
-                </button>
-              ))}
+            <div className="relative flex justify-between">
+              <div className="flex items-center gap-2">
+                <img
+                  profilePic
+                  src={isBuyMode ? `${agentDetail?.parentUrl}` : `${agentDetail?.profilePic}`}
+                  alt="COIN_ICON"
+                  className="w-[32px] h-[32px] rounded-full"
+                />
+                <span className="text-[24px] font-bold">
+                  {isBuyMode ? `${agentDetail?.parentSymbol}` : `${agentDetail?.ticker}`}
+                </span>
+              </div>
+              <input
+                type="text"
+                value={amount}
+                onChange={handleAmountChange}
+                className={`w-[20%] bg-[#e0e0e4] rounded-xl p-4 transition-colors ${
+                  error ? "border-red-500" : "border-transparent"
+                }`}
+                placeholder="0.0"
+              />
             </div>
           </div>
-          <div className="relative">
-            <input
-              type="text"
-              value={amount}
-              onChange={handleAmountChange}
-              className={`w-full bg-[#e0e0e4] rounded-xl p-4 transition-colors ${
-                error ? "border-red-500" : "border-transparent"
-              }`}
-              placeholder="0.0"
-            />
-            <div className="absolute flex items-center gap-2 -translate-y-1/2 right-4 top-1/2">
-              <img
-                profilePic
-                src={isBuyMode ? `${agentDetail?.parentUrl}` : `${agentDetail?.profilePic}`}
-                alt="COIN_ICON"
-                className="w-[16px] h-[16px]"
-              />
-              <span className="text-sm">
-                {isBuyMode ? `${agentDetail?.parentSymbol}` : `${agentDetail?.ticker}`}
-              </span>
-            </div>
-          </div>
-        </div>
 
-        {/* You Receive Section */}
-        <div className="mb-6 text-[#302249]">
-          <div className="mb-3 text-sm">You Receive</div>
-          <div className="relative">
-            <input
-              type="text"
-              value={loading ? "Calculating..." : receivedAmount}
-              readOnly
-              className="w-full bg-[#e0e0e4] rounded-xl p-4"
-              placeholder="0.0"
-            />
-            <div className="absolute flex items-center gap-2 -translate-y-1/2 right-4 top-1/2">
-              <img
-                src={!isBuyMode ? `${agentDetail?.parentUrl}` : `${agentDetail?.profilePic}`}
-                alt="SUI"
-                className="w-[16px] h-[16px]"
+          <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40px] h-[40px] rounded-full bg-[#EEEDF1] flex items-center justify-center">
+            <img src="/images/swap.png" className="w-5 h-5" />
+          </div>
+
+          <div className="mb-6 text-[#302249] bg-[#FFF] p-4 rounded-2xl">
+            <div className="mb-3 text-[#706383] text-[20px] font-normal">You Receive</div>
+            <div className="relative flex justify-between">
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 ">
+                  <img
+                    src={!isBuyMode ? `${agentDetail?.parentUrl}` : `${agentDetail?.profilePic}`}
+                    alt="SUI"
+                    className="w-[32px] h-[32px] rounded-full"
+                  />
+                  <span className="text-sm">
+                    {!isBuyMode ? `${agentDetail?.parentSymbol}` : `${agentDetail?.ticker}`}
+                  </span>
+                </div>
+              </div>
+              <input
+                type="text"
+                value={loading ? "Calculating..." : receivedAmount}
+                readOnly
+                className="w-[20%] bg-[#e0e0e4] rounded-xl p-4"
+                placeholder="0.0"
               />
-              <span className="text-sm">
-                {!isBuyMode ? `${agentDetail?.parentSymbol}` : `${agentDetail?.ticker}`}
-              </span>
             </div>
           </div>
         </div>
@@ -372,8 +366,8 @@ const TradeComponent = ({ agentDetail, graphData }) => {
             "Place Trade"
           )}
         </button>
+        <BondingCurve graphData={graphData} />
       </div>
-      <BondingCurve graphData={graphData} />
     </div>
   );
 };
