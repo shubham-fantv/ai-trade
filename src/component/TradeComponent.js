@@ -266,7 +266,7 @@ const TradeComponent = ({ agentDetail, graphData }) => {
 
   return (
     <div className="w-full space-y-2">
-      <div className=" relative bg-[#FFFFFF80] w-full   border-[2px] border-[#FFFFFF]/15 rounded-xl p-6">
+      <div className=" relative bg-[#FFFFFF80] w-full   border-[2px] border-[#FFFFFF]/15 rounded-xl p-3 md:p-6">
         <div className="relative flex border-b border-gray-300 w-full">
           <button
             className={`px-4 pb-2 text-lg font-bold transition-all relative ${
@@ -292,7 +292,7 @@ const TradeComponent = ({ agentDetail, graphData }) => {
           </button>
         </div>
         <div className="relative">
-          <div className="my-6 text-[#302249] bg-[#FFF] p-4 rounded-2xl">
+          <div className="my-3 md:my-6 text-[#302249] bg-[#FFF] p-4 rounded-2xl">
             <div className="flex justify-between mb-3 text-sm ">
               <div className="flex items-center gap-1">
                 <span className="text-[#706383] text-[20px] font-normal">From</span>

@@ -24,7 +24,7 @@ const BondingCurve = ({ graphData }) => {
   };
 
   return (
-    <div className="p-6 text-[#302249]">
+    <div className="p-3 md:p-6 pt-4 text-[#302249]">
       <h3 className="mb-4 text-[16px] font-bold">Bonding Curve Progress</h3>
       <div className="relative h-1 bg-[#333333] rounded-full overflow-hidden mb-4">
         {/* Gradient background */}

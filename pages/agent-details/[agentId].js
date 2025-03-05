@@ -78,7 +78,7 @@ export default function AgentDetails({ agentDetail, agentId }) {
       label: "Trades",
       component: (
         <div className="mt-6 max-w-7xl">
-          <h4 className="mb-2 text-[#706383] font-normal">Recent Trades</h4>
+          {/* <h4 className="mb-2 text-[#706383] font-normal">Recent Trades</h4> */}
           <TradeTable agentDetail={agentDetail} />
         </div>
       ),
@@ -116,9 +116,9 @@ export default function AgentDetails({ agentDetail, agentId }) {
           <meta name="description" content="Mona AI Agent Details" />
         </Head>
 
-        <div className=" mx-auto grid grid-cols-1  sm:grid-cols-3  p-6">
-          <div className={`rounded-xl col-span-2 gap-6 pr-6`}>
-            <div className="rounded-[24px] flex border-[2px] bg-[#FFFFFF80] border-[#FFFFFF]/15 w-full h-auto p-6 ">
+        <div className=" mx-auto grid grid-cols-1  sm:grid-cols-3 pt-8  md:p-6">
+          <div className={`rounded-xl col-span-2 gap-6 pr-0 md:pr-6`}>
+            <div className="rounded-[24px] flex border-[2px] bg-[#FFFFFF80] border-[#FFFFFF]/15 w-full h-auto p-3 md:p-6 ">
               <div>
                 <HtmlTooltip
                   placement={"right"}
@@ -133,29 +133,29 @@ export default function AgentDetails({ agentDetail, agentId }) {
                   <img
                     src={agentDetail.profilePic}
                     alt="Agent_Profile"
-                    className="rounded-full w-[120px] h-[120px]"
+                    className="rounded-full w-[60px] md:w-[120px] h-[60px] md:h-[120px]"
                   />
                 </HtmlTooltip>
               </div>
-              <div className="ml-4 w-[90%]">
+              <div className="ml-4 w-[70%] md:w-[90%] relative">
                 <div className="flex flex-col justify-between gap-2 sm:flex-row">
                   <div className="flex text-[#302249] items-center gap-2 mb-1">
-                    <h2 className="lex items-center font-spacegrotesk text-[#302249] gap-1 font-medium text-2xl self-end ">
+                    <h2 className="lex items-center font-spacegrotesk text-[#302249] gap-1 font-medium text-xl md:text-2xl self-end ">
                       {agentDetail?.name}
                     </h2>
-                    <span className="text-2xl font-medium self-end uppercase rounded text-[#302249]">
+                    <span className="text-xl md:text-2xl font-medium self-end uppercase rounded text-[#302249]">
                       {agentDetail?.ticker}
                     </span>
                   </div>
-                  <div className="mt-[-10px]">
+                  <div className="mt-[-10px] flex md:block">
                     <div className="text-base font-inter text-[#302249]">Market Cap</div>
-                    <div className="text-base text-[#302249] font-inter  mt-2  flex justify-center font-normal">
+                    <div className="text-base text-[#302249] font-inter  mt-0 md:mt-2  flex justify-center font-normal">
                       {agentDetail?.marketCap}
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-1 mb-3 ">
+                <div className=" md:flex items-center gap-1 mb-3 ">
                   <div className="w-full sm:w-[auto] h-[32px] px-2 font-normal font-inter   text-[14px] text-[#706383] flex justify-between items-center gap-2 border-[1px] border-[#706383]/70 rounded-[8px] m-[1px]">
                     {formatWalletAddress(agentDetail?.tickerId)}
                     {copied ? (
@@ -181,11 +181,11 @@ export default function AgentDetails({ agentDetail, agentId }) {
                       </svg>
                     )}
                   </div>
-                  <span className="h-[32px] w-full sm:w-[125px] text-[#706383] font-normal font-inter   text-[12px] rounded-[8px] border-[1px] border-[#706383]/70  flex justify-center items-center">
+                  <span className="h-[32px] mt-3 md:mt-0 w-full sm:w-[125px] text-[#706383] font-normal font-inter   text-[12px] rounded-[8px] border-[1px] border-[#706383]/70  flex justify-center items-center">
                     {agentDetail?.category}
                   </span>
                 </div>
-                <div className="flex justify-between">
+                <div className="md:flex  justify-between">
                   <div className="flex gap-4">
                     {agentDetail?.instagram && (
                       <a
@@ -217,12 +217,12 @@ export default function AgentDetails({ agentDetail, agentId }) {
                   {agentDetail?.hireAgent && (
                     <button
                       onClick={() => openLink(agentDetail?.hireAgent)}
-                      className="relative flex items-center px-6 py-3 md:py-2 text-white bg-[#715EC2] rounded-full shadow-md  w-full md:w-auto"
+                      className="relative w-[200px] ml-[-10px] mt-3 md:mt-0  md:w-auto flex items-center pl-10 md:px-6 py-3 md:py-2 text-white bg-[#715EC2] rounded-full shadow-md "
                     >
                       <span className="absolute left-1 flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full">
                         <img src="/images/launch.svg" />
                       </span>
-                      <span className="ml-10 md:ml-8 text-sm md:text-base  font-inter  font-bold text-center">
+                      <span className="ml-0 md:ml-8 text-sm md:text-base  font-inter  font-bold text-center">
                         Try VideoNation Now
                       </span>
                     </button>
@@ -230,6 +230,11 @@ export default function AgentDetails({ agentDetail, agentId }) {
                 </div>
               </div>
             </div>
+            {isMobile && (
+              <div className="mt-6">
+                <TradeComponent agentDetail={agentDetail} graphData={graphData} />
+              </div>
+            )}
             <div
               className={`${isMobile ? "gap-0" : "gap-6"} grid grid-cols-1  mt-6 sm:grid-cols-3`}
             >
@@ -267,51 +272,16 @@ export default function AgentDetails({ agentDetail, agentId }) {
             <TradeComponent agentDetail={agentDetail} graphData={graphData} />
           )}
         </div>
-
-        {/* <div className=" mx-auto grid grid-cols-1  sm:grid-cols-3  p-6">
-          <div className="col-span-2">
-            {isMobile ? (
-              <TradeComponent agentDetail={agentDetail} graphData={graphData} />
-            ) : (
-              <div className="bg-[#FFFFFF80] border-[2px] border-[#FFFFFF]/15 rounded-xl p-2 md:p-6">
-                <div className="flex space-x-4 border-b border-white/10">
-                  <TabButton isActive={tab.label === tabs[0].label} onClick={() => setTab(tabs[0])}>
-                    Trades
-                  </TabButton>
-                  <TabButton isActive={tab.label === tabs[1].label} onClick={() => setTab(tabs[1])}>
-                    What does it do
-                  </TabButton>
-                </div>
-                {agentDetail?.aiAgents && (
-                  <div className="flex gap-2 rounded-[24px] p-2 w-full overflow-x-scroll">
-                    {agentDetail?.aiAgents.map((agent, index) => (
-                      <div key={i} className="relative shrink-0">
-                        <img
-                          src={agentDetail?.profilePic}
-                          alt="Mona AI"
-                          className="rounded-[24px] w-[116px] h-[113px]"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                )}
-                {tab.component}
-              </div>
-            )}
-          </div>
-        </div> */}
       </div>
       <div className="relative w-full">
         <div className="absolute top-[-140px] bg-gradient-to-t from-[#EEEDF1] to-transparent h-[160px] w-full"></div>
       </div>
 
-      <div className="relative mx-auto grid grid-cols-1  sm:grid-cols-3 px-12 mr-6">
+      <div className="relative mx-auto grid grid-cols-1  sm:grid-cols-3 px-12 mr-8 md:mt-[-20px]">
         <div className=" col-span-2">
-          {isMobile ? (
-            <TradeComponent agentDetail={agentDetail} graphData={graphData} />
-          ) : (
+          {isMobile ? null : (
             <div className="bg-[#FFFFFF80] border-[2px] border-[#FFFFFF]/15 rounded-xl p-2 md:p-6">
-              <div className="flex space-x-4 border-b border-white/10">
+              <div className="flex space-x-4 border-b border-[#30224966]">
                 <TabButton isActive={tab.label === tabs[0].label} onClick={() => setTab(tabs[0])}>
                   Trades
                 </TabButton>

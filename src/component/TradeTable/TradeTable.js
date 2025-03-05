@@ -158,7 +158,7 @@ const TradeTable = ({ agentDetail }) => {
               </span>
             </div> */}
             <div
-              className="flex flex-col p-3 rounded cursor-pointer bg-gray-800/20"
+              className="flex flex-col col-span-2 p-3 rounded cursor-pointer bg-gray-800/20"
               onClick={() => handleTradeClick(tx.digest)}
             >
               <span className="text-xs font-medium text-left font-nohemi text-[14px] leading-[21px]">
