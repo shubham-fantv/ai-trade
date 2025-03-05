@@ -245,19 +245,7 @@ const RevampHeader = ({ app }) => {
                       {label}
                     </Typography>
                   ))}
-                  <Typography
-                    variant="h6"
-                    className="nav-item"
-                    onClick={() => setOpen(true)}
-                    sx={{
-                      color: "#FFFFFF",
-                      display: "flex",
 
-                      fontSize: "16px",
-                    }}
-                  >
-                    Create agent
-                  </Typography>
                   <Typography
                     onClick={() => openLink("https://marketplace.agentnation.xyz")}
                     variant="h6"
@@ -299,6 +287,32 @@ const RevampHeader = ({ app }) => {
                     >
                       Coming Soon
                     </Box>
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    className="nav-item"
+                    onClick={() => setOpen(true)}
+                    sx={{
+                      color: "#FFFFFF",
+                      display: "flex",
+
+                      fontSize: "16px",
+                    }}
+                  >
+                    Developers
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    className="nav-item"
+                    onClick={() => setOpen(true)}
+                    sx={{
+                      color: "#FFFFFF",
+                      display: "flex",
+
+                      fontSize: "16px",
+                    }}
+                  >
+                    Blog
                   </Typography>
                 </Box>
               </Box>
