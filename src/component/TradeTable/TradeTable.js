@@ -83,15 +83,6 @@ const TradeTable = ({ agentDetail }) => {
 
   const AccountCell = ({ account }) => (
     <div className="flex items-center space-x-2">
-      <div className="w-6 h-6">
-        <svg viewBox="0 0 24 24" className="w-full h-full text-[#302249]">
-          <rect width="24" height="24" fill="currentColor" opacity="0.2" rx="12" />
-          <path
-            fill="currentColor"
-            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-          />
-        </svg>
-      </div>
       <span className="text-[#302249]">{formatWalletAddress(account, 5)}</span>
     </div>
   );
@@ -187,15 +178,21 @@ const TradeTable = ({ agentDetail }) => {
         // Desktop Layout (unchanged)
         <table className="w-full">
           <thead>
-            <tr className="w-full  border-b border-gray-800">
-              <th className="py-4 font-normal  text-left  text-[14px] leading-[21px]">ACCOUNT</th>
-              <th className="py-4 font-normal  text-center  text-[14px] leading-[21px]">TYPE</th>
-              <th className="py-4 font-normal  text-center  text-[14px] leading-[21px]">$MAN</th>
-              <th className="py-4 font-normal  text-center  text-[14px] leading-[21px]">
+            <tr className="w-full  border-b border-[#30224966]">
+              <th className="py-4 font-normal  text-left  text-[14px] md:text-[16px] leading-[21px]">
+                ACCOUNT
+              </th>
+              <th className="py-4 font-normal  text-center  text-[14px] md:text-[16px] leading-[21px]">
+                TYPE
+              </th>
+              <th className="py-4 font-normal  text-center  text-[14px] md:text-[16px] leading-[21px]">
+                $MAN
+              </th>
+              <th className="py-4 font-normal  text-center  text-[14px] md:text-[16px] leading-[21px]">
                 {agentDetail?.ticker}
               </th>
-              <th className="py-4 font-normal  text-center  text-[14px] leading-[21px]"></th>
-              <th className="py-4 font-normal  text-center  text-[14px] leading-[21px]">
+              <th className="py-4 font-normal  text-center  text-[14px] md:text-[16px] leading-[21px]"></th>
+              <th className="py-4 font-normal  text-center  text-[14px] md:text-[16px] leading-[21px]">
                 TRANSACTION
               </th>
             </tr>
@@ -205,27 +202,27 @@ const TradeTable = ({ agentDetail }) => {
               <tr
                 onClick={() => handleTradeClick(tx.digest)}
                 key={tx._id}
-                className="border-b   cursor-pointer border-gray-800/50 hover:bg-gray-800/20"
+                className="border-b   cursor-pointer border-[#30224966] hover:bg-gray-800/20"
               >
-                <td className="py-4 text-left  text-[14px] font-normal leading-[21px]">
+                <td className="py-4 text-left  text-[14px] font-inter font-normal leading-[21px]">
                   <AccountCell account={tx.sender} />
                 </td>
                 <td
-                  className={`py-4 text-center   text-[14px] font-normal
+                  className={`py-4 text-center   text-[14px] font-inter font-normal
 leading-[21px] ${tx.transactionType === "BUY" ? "text-green-100" : "text-red-400"}}`}
                 >
                   {tx.transactionType}
                 </td>
-                <td className="py-4 text-center text-[#302249]  text-[14px] font-normal leading-[21px]">
+                <td className="py-4 text-center text-[#302249]  text-[14px] font-inter font-normal leading-[21px]">
                   {tx?.suiAmount?.toLocaleString()}
                 </td>
-                <td className="py-4 text-center text-[#302249]  text-[14px] font-normal leading-[21px]">
+                <td className="py-4 text-center text-[#302249]  text-[14px] font-inter font-normal leading-[21px]">
                   {tx?.coinAmount?.toLocaleString()}
                 </td>
                 <td className="py-4 text-center text-gray-400">
                   {/* {getFormattedDate(tx.createdAt)} */}
                 </td>
-                <td className="py-4 text-center text-[#302249]  text-[14px] font-normal leading-[21px]">
+                <td className="py-4 text-center text-[#302249]  text-[14px] font-inter font-normal leading-[21px]">
                   {formatWalletAddress(tx.digest, 5)}
                 </td>
               </tr>

@@ -306,7 +306,7 @@ const TradeComponent = ({ agentDetail, graphData }) => {
                   alt="COIN_ICON"
                   className="w-[32px] h-[32px] rounded-full"
                 />
-                <span className="text-[24px] font-bold">
+                <span className="text-base md:text-[24px] font-bold">
                   {isBuyMode ? `${agentDetail?.parentSymbol}` : `${agentDetail?.ticker}`}
                 </span>
               </div>
@@ -336,7 +336,7 @@ const TradeComponent = ({ agentDetail, graphData }) => {
                     alt="SUI"
                     className="w-[32px] h-[32px] rounded-full"
                   />
-                  <span className="text-sm">
+                  <span className=" text-base md:text-[24px] font-bold">
                     {!isBuyMode ? `${agentDetail?.parentSymbol}` : `${agentDetail?.ticker}`}
                   </span>
                 </div>
@@ -353,7 +353,7 @@ const TradeComponent = ({ agentDetail, graphData }) => {
         </div>
 
         <button
-          className="w-full py-4 rounded-full bg-[#715EC2] text-white transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full py-4 rounded-full bg-[linear-gradient(51.35deg,#121749_0%,#466CF7_100%)] text-white transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
           onClick={placeTrade}
           disabled={tradeLoading || !amount || loading || amount <= 0.0}
         >

@@ -56,10 +56,10 @@ export default function Home() {
     <div className="bg-[#FF0000]  text-white pt-16 sm:pt-24 mx-auto bg-gradient-to-r from-[#E7DCFF] to-[#D8EDFF] ">
       {(isLoading || isFetching) && <Loading />}
       <div>
-        <h1 className="text-[#302249] mt-10 mb-2 text-3xl sm:text-[40px] font-semibold text-center ">
+        <h1 className="text-[#302249] mt-10 mb-2 text-3xl md:text-[56px] font-semibold text-center ">
           Trade AI Agents
         </h1>
-        <h4 className=" text-[#706383] mb-6 pt-2 text-lg sm:text-[22px] font-medium font-inter  text-center px-4 leading-[30px]">
+        <h4 className=" text-[#706383] mb-4 pt-4 text-lg md:text-[16px] font-inter font-medium font-inter  text-center px-4 leading-[24px]">
           Develop the next generation of Agentic dApps which solves real <br />
           world problems. Dive into the resources to help you ship faster.
         </h4>
@@ -78,22 +78,22 @@ export default function Home() {
         </button>
       </div> */}
 
-      <div className="flex flex-col md:flex-row items-center justify-center gap-4 my-10 mx-auto px-4">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-28 mx-auto px-4">
         <button
           onClick={() => alert("coming soon")}
-          className="relative flex items-center px-6 py-3 md:py-4 text-white bg-[#715EC2] rounded-full shadow-md  w-full md:w-auto"
+          className="relative flex items-center px-6 py-3 md:py-4 text-white bg-[linear-gradient(51.35deg,#121749_0%,#466CF7_100%)] rounded-full shadow-md  w-full md:w-auto"
         >
           <span className="absolute left-2 flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full">
             <img src="/images/launch.svg" />
           </span>
-          <span className="ml-10 md:ml-8 text-sm md:text-base  font-inter  font-bold text-center">
-            Launch your Agent token
+          <span className="ml-10 md:ml-8 text-lg md:text-[20px] md:text-base  font-inter  font-medium text-center">
+            Launch Agent token
           </span>
         </button>
 
         <button
           onClick={() => alert("coming soon")}
-          className="w-full md:w-auto px-6 py-3  font-inter  font-bold md:py-4 text-[#302249] bg-white border border-gray-300 rounded-full shadow-md hover:bg-gray-100 text-sm md:text-base"
+          className="w-full md:w-auto px-6 py-3 text-lg md:text-[20px] font-inter  font-medium md:py-4 text-[#706383] bg-white border border-gray-300 rounded-full shadow-md hover:bg-gray-100 text-sm md:text-base"
         >
           Hire Agent Now
         </button>
@@ -133,7 +133,7 @@ export default function Home() {
               )}
             </div>
           </label>
-          <span className="text-sm font-nohemi text-[#302249]">All Agents</span>
+          <span className="text-sm font-inter font-medium text-[#302249]">All Agents</span>
 
           <label className="inline-flex items-center gap-2">
             <label className="inline-flex items-center cursor-pointer">
@@ -161,14 +161,14 @@ export default function Home() {
                 )}
               </div>
             </label>
-            <span className="text-sm font-nohemi text-[#302249] ">Graduated Agents</span>
+            <span className="text-sm font-inter text-[#302249] font-medium ">Graduated Agents</span>
           </label>
         </div>
       </div>
       <div className="relative overflow-hidden  p-4 pb-8 min-h-[500px] bg-custom-gradient">
         <div className="relative z-10">
           {!isMobile && (
-            <div className="grid text-[#302249] grid-cols-8 text-sm md:text-base font-medium mb-2 px-4 min-w-[1100px] overflow-x-auto">
+            <div className="grid text-[#302249] mx-8 grid-cols-8 text-sm md:text-[18px] font-bold mb-2 px-4 min-w-[1100px] overflow-x-auto">
               <div className="text-center col-span-2">AI Agents</div>
               <div className="text-center">Category</div>
               <div className="text-center">Market Cap ($MAN)</div>
@@ -309,7 +309,7 @@ export default function Home() {
                           <div>
                             <div className="text-[16px] text-[#302249] font-medium font-inter flex items-center">
                               {agent?.name}
-                              <span className=" px-1.5 ">{agent?.ticker}</span>
+                              <span className=" px-1.5 ">({agent?.ticker})</span>
                               {/* <svg
                                 width="18"
                                 height="18"
@@ -394,17 +394,17 @@ export default function Home() {
                         </div>
                       </div>
                       <div
-                        className={`text-center text-[#302249] text-[14px] font-normal font-inter leading-[21px]`}
+                        className={`text-center text-[#302249] text-[16px] font-medium font-inter leading-[21px]`}
                       >
                         &nbsp; {agent.category}
                       </div>
                       <div
-                        className={` text-center text-[#302249] text-[14px] font-normal font-inter leading-[21px]`}
+                        className={` text-center text-[#302249] text-[16px] font-medium font-inter leading-[21px]`}
                       >
                         {agent?.marketCap}
                       </div>
                       <div
-                        className={`text-center text-[14px] font-normal leading-[21px] font-inter whitespace-nowrap ${
+                        className={`text-center text-[16px] font-medium leading-[21px] font-inter whitespace-nowrap ${
                           agent?.change24?.text?.startsWith("+")
                             ? "text-[#26C281]"
                             : "text-[#ED1C24]"
@@ -412,13 +412,13 @@ export default function Home() {
                       >
                         {agent?.change24?.text}
                       </div>
-                      <div className="text-center text-[#302249] text-[14px] font-normal font-inter leading-[21px]">
+                      <div className="text-center text-[#302249] text-[16px] font-medium font-inter leading-[21px]">
                         {agent.tvl}
                       </div>
-                      <div className="text-center text-[#302249] text-[14px] font-normal font-inter leading-[21px]">
+                      <div className="text-center text-[#302249] text-[16px] font-medium font-inter leading-[21px]">
                         {agent.holders}
                       </div>
-                      <div className="text-center text-[#302249] text-[14px] font-normal font-inter leading-[21px]">
+                      <div className="text-center text-[#302249] text-[16px] font-medium font-inter leading-[21px]">
                         {agent.volume24}
                       </div>
                     </a>

@@ -44,7 +44,7 @@ const BondingCurve = ({ graphData }) => {
         <span>Pool SUI: {Number(graphData?.poolSui).toLocaleString()}</span>
         <span>Pool Coin: {Number(graphData?.poolCoin).toLocaleString()}</span>
       </div> */}
-      <div className="mt-4 text-sm text-[#706383]">
+      <div className="mt-4 text-[14px] font-inter text-[#706383]">
         <p className="mb-2">{renderBondingCurveText(graphData?.bondingCurve)}</p>
       </div>
     </div>

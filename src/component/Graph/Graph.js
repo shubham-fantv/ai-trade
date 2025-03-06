@@ -221,12 +221,13 @@ const Graph = ({ agentDetail, setGraphData }) => {
           background: { type: "solid", color: "transparent" },
           textColor: "#302249",
         },
+
         grid: {
-          vertLines: { color: "rgba(42, 46, 57, 0.5)" },
-          horzLines: { color: "rgba(42, 46, 57, 0.5)" },
+          vertLines: { color: "#30224966" },
+          horzLines: { color: "#30224966" },
         },
         timeScale: {
-          borderColor: "#2a2e39",
+          borderColor: "#30224966",
           timeVisible: true,
           secondsVisible: false,
           fixLeftEdge: false,
@@ -246,7 +247,7 @@ const Graph = ({ agentDetail, setGraphData }) => {
           },
         },
         rightPriceScale: {
-          borderColor: "#2a2e39",
+          borderColor: "#30224966",
           visible: true,
           scaleMargins: {
             top: 0.1,

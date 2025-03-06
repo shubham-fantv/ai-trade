@@ -45,10 +45,13 @@ const TabButton = ({ isActive, onClick, children }) => {
     <button
       className={`
       px-2 py-2 
-      text-[#302249]
       transition-all
-      text-base md:text-xl
-      ${isActive ? "border-white font-extrabold" : "border-transparent hover:border-white/50"}
+      text-base md:text-[24px]
+      ${
+        isActive
+          ? "border-white font-extrabold text-[#302249]"
+          : "border-transparent hover:border-white/50 text-[#706383]"
+      }
     `}
       onClick={onClick}
     >
@@ -137,7 +140,7 @@ export default function AgentDetails({ agentDetail, agentId }) {
                   />
                 </HtmlTooltip>
               </div>
-              <div className="ml-4 w-[70%] md:w-[90%] relative">
+              <div className="ml-4 w-[70%] md:w-[83%] relative">
                 <div className="flex flex-col justify-between gap-2 sm:flex-row">
                   <div className="flex text-[#302249] items-center gap-2 mb-1">
                     <h2 className="lex items-center font-spacegrotesk text-[#302249] gap-1 font-medium text-xl md:text-2xl self-end ">
@@ -149,14 +152,14 @@ export default function AgentDetails({ agentDetail, agentId }) {
                   </div>
                   <div className="mt-[-10px] flex md:block">
                     <div className="text-base font-inter text-[#302249]">Market Cap</div>
-                    <div className="text-base text-[#302249] font-inter  mt-0 md:mt-2  flex justify-center font-normal">
+                    <div className="text-base text-[#302249] font-inter  mt-0 md:mt-1  flex justify-center font-normal">
                       {agentDetail?.marketCap}
                     </div>
                   </div>
                 </div>
 
                 <div className=" md:flex items-center gap-1 mb-3 ">
-                  <div className="w-full sm:w-[auto] h-[32px] px-2 font-normal font-inter   text-[14px] text-[#706383] flex justify-between items-center gap-2 border-[1px] border-[#706383]/70 rounded-[8px] m-[1px]">
+                  <div className="w-full sm:w-[auto] h-[32px] px-2 font-normal bg-[#FFFFFFB2] font-inter   text-[14px] text-[#706383] flex justify-between items-center gap-2 border-[0.25px] border-[#706383]/70 rounded-[8px] m-[1px]">
                     {formatWalletAddress(agentDetail?.tickerId)}
                     {copied ? (
                       <span className="text-xs">Copied!</span>
@@ -181,7 +184,7 @@ export default function AgentDetails({ agentDetail, agentId }) {
                       </svg>
                     )}
                   </div>
-                  <span className="h-[32px] mt-3 md:mt-0 w-full sm:w-[125px] text-[#706383] font-normal font-inter   text-[12px] rounded-[8px] border-[1px] border-[#706383]/70  flex justify-center items-center">
+                  <span className="h-[32px] mt-3 md:mt-0 w-full bg-[#FFFFFFB2] sm:w-[125px] text-[#706383] font-normal font-inter   text-[12px] rounded-[8px] border-[0.25px] border-[#706383]/70  flex justify-center items-center">
                     {agentDetail?.category}
                   </span>
                 </div>
@@ -217,7 +220,7 @@ export default function AgentDetails({ agentDetail, agentId }) {
                   {agentDetail?.hireAgent && (
                     <button
                       onClick={() => openLink(agentDetail?.hireAgent)}
-                      className="relative w-[200px] ml-[-10px] mt-3 md:mt-0  md:w-auto flex items-center pl-10 md:px-6 py-3 md:py-2 text-white bg-[#715EC2] rounded-full shadow-md "
+                      className="relative w-[200px] ml-[-10px] mt-3 md:mt-0  md:w-auto flex items-center pl-10 md:px-6 py-3 md:py-2 text-white bg-[linear-gradient(51.35deg,#121749_0%,#466CF7_100%)] rounded-full shadow-md "
                     >
                       <span className="absolute left-1 flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full">
                         <img src="/images/launch.svg" />
@@ -250,7 +253,7 @@ export default function AgentDetails({ agentDetail, agentId }) {
                   Trades
                 </TabButton>
                 <TabButton isActive={tab.label === tabs[1].label} onClick={() => setTab(tabs[1])}>
-                  What does it do
+                  Summary
                 </TabButton>
               </div>
               {agentDetail?.aiAgents && (
@@ -286,7 +289,7 @@ export default function AgentDetails({ agentDetail, agentId }) {
                   Trades
                 </TabButton>
                 <TabButton isActive={tab.label === tabs[1].label} onClick={() => setTab(tabs[1])}>
-                  What does it do
+                  Summary
                 </TabButton>
               </div>
               {agentDetail?.aiAgents && (

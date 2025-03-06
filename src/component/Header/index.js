@@ -236,7 +236,7 @@ const RevampHeader = ({ app }) => {
                       variant="h6"
                       className="nav-item"
                       sx={{
-                        color: "#FFFFFF",
+                        color: "#e98fff",
                         display: "flex",
 
                         fontSize: "16px",
@@ -247,7 +247,7 @@ const RevampHeader = ({ app }) => {
                   ))}
 
                   <Typography
-                    onClick={() => openLink("https://marketplace.agentnation.xyz")}
+                    // onClick={() => openLink("https://marketplace.agentnation.xyz")}
                     variant="h6"
                     className="nav-item"
                     sx={{
@@ -271,7 +271,7 @@ const RevampHeader = ({ app }) => {
                     }}
                   >
                     Build
-                    <Box
+                    {/* <Box
                       sx={{
                         marginLeft: "10px",
                         height: "max-content",
@@ -286,12 +286,12 @@ const RevampHeader = ({ app }) => {
                       }}
                     >
                       Coming Soon
-                    </Box>
+                    </Box> */}
                   </Typography>
                   <Typography
                     variant="h6"
                     className="nav-item"
-                    onClick={() => setOpen(true)}
+                    // onClick={() => setOpen(true)}
                     sx={{
                       color: "#FFFFFF",
                       display: "flex",
@@ -304,7 +304,7 @@ const RevampHeader = ({ app }) => {
                   <Typography
                     variant="h6"
                     className="nav-item"
-                    onClick={() => setOpen(true)}
+                    // onClick={() => setOpen(true)}
                     sx={{
                       color: "#FFFFFF",
                       display: "flex",
